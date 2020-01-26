@@ -1,0 +1,29 @@
+@model List<ProfitLoss>
+    
+<form method="post" action="Monthly">
+    <fieldset>
+        <legend>Select a month:</legend>
+        <label for="month_datepicker">Select month: </label>
+        <input name="month" id="month_datepicker" />
+        <button id="submit_month" type="submit" name="submit_month" class="button-turquoise">Show Daily Data</button>
+    </fieldset>
+</form>
+
+<script>
+
+$("#month_datepicker").datepicker({
+        changeMonth: true,
+        showButtonPanel: true,
+        dateFormat: "M",
+        beforeShow: function (e, t) {
+            $(this).datepicker("hide");
+            $("#ui-datepicker-div").addClass("hide-calendar");
+			$("#ui-datepicker-div").addClass('MonthDatePicker');
+			$("#ui-datepicker-div").addClass('HideTodayButton');
+        },
+		onClose: function(dateText, inst){
+			var n = Math.abs($("#ui-datepicker-div .ui-datepicker-month :selected").val() - 1) + 2;
+			 $(this).datepicker("setDate", new Date(null, n, null));
+		}
+    });
+    </script>

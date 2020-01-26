@@ -1,0 +1,91 @@
+@model List<Sale>
+<br/>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-green">
+      <div class="panel-heading">Daily Stock List</div>
+          <div class="panel-body">
+    <form asp-action="SearchByDate" asp-controller="Sale" method="Get">
+        <div class="input-group">
+          <input type="date" id="date" name="date" class="form-control" placeholder="Enter date" value="@ViewBag.DateValue"/>
+          
+        <div class="input-group-append">
+          <select id="customerId" name="customerId" class="form-control" asp-items="@ViewBag.Customers">
+            <option selected value="0">Select Customer</option>
+          </select>
+        </div>
+       <span >
+        <input type="submit" value="Search" class="btn btn-primary"/>
+      </span>
+      
+        </div>
+    </form>
+  
+
+<br/>
+<div class="container col-lg-12" >          
+  <table  width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <thead>
+      <tr class= table-primary>
+        <th>Date</th>
+        <th>Customer Name</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var p in Model)
+      {
+          <tr class="table-light">
+        <td>@p.CreatedAt.ToShortDateString()</td>
+        <td>@p.Customer.FirstName</td>
+        <td>@p.DailyStock.Product.ProductName</td>
+         <td>@p.Quantity</td>
+         <td>@p.DailyStock.Product.Price</td>
+         <td>@(p.Quantity * p.DailyStock.Product.Price)</td>
+        
+      </tr>
+      }  
+    </tbody>
+  </table>
+  <span class="pull-right">Total Amount :  <strong>Rs. @ViewBag.Total.ToString("#.##")</strong></span>
+</div>
+    </div>
+  </div>
+  <div class="form-group">
+  <button class="btn btn-success mr-2" id="btnPrint">Print</button>
+</div>
+    </div>
+
+
+
+
+@section Scripts{
+  <script>
+  $(()=>{
+
+    var date = $("#date");
+   
+    var year = new Date().getFullYear();
+    var month = new Date().getMonth()+1;
+    var day = new Date().getDate();
+
+    var dateValue = year +"-0"+month+"-"+day;
+    console.log(dateValue)
+    
+    if($(date).val()=="")
+      $(date).val(dateValue)
+
+
+    //Print button code
+
+    var printBtn = $("#btnPrint")
+    printBtn.on('click',()=>{
+      window.print();
+    })
+  });
+  </script>
+}

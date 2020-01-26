@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - newproject</title>
+
+     <!-- Bootstrap Core CSS -->
+    <link href="~/theme/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="~/theme/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/theme/dist/css/sb-admin-2.css" rel="stylesheet">
+
+
+    <!-- Morris Charts CSS -->
+    <link href="~/theme/vendor/morrisjs/morris.css" rel="stylesheet">
+    
+
+    <!-- Custom Fonts -->
+    <link href="~/theme/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="~/css/site.css" rel="stylesheet" type="text/css"/>
+    <link href="~/toastr/build/toastr.css" rel="stylesheet" type="text/css"/>
+
+    
+    
+
+  
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+       
+</head>
+<body>
+ <div id="wrapper"> 
+ 
+   <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">BAKERTY PROJECT    </a>
+            </div>
+            <div class="navbar navbar default navbar-left" role="navigation" style="matgin-bottom: 0">
+                 @await Html.PartialAsync("_LoginPartial")
+            </div>
+            <!-- /.navbar-header -->
+                <!-- /.dropdown
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                     /.dropdown-user 
+                </li>-->
+                <!-- /.dropdown -->
+            
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Products<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Index">View Products</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="New">Add Product</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="Purchase"> For Purchase</a></li>
+                                <li><a class="dropdown-item" asp-controller="Product" asp-action="ViewPurchase">List Of Product To Purchase</a></li>
+                            
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Daily Stocks <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a class="dropdown-item" asp-controller="DailyStock" asp-action="New">Add Today's Stock</a></li>
+                                <li><a class="dropdown-item" asp-controller="DailyStock" asp-action="Index">View Daily Stocks</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a ><i class="fa fa-edit fa-fw"></i>Sales <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-second-level">
+                                <li><a class="dropdown-item" asp-controller="Sale" asp-action="New">Sell Today's Stock</a></li>
+                                <li><a class="dropdown-item" asp-controller="Sale" asp-action="Index">View Daily Sales Report</a></li>
+                            </ul>       
+                        
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i>Customer <span class="fa arrow"></span></a>
+
+                            <ul class="nav nav-second-level">
+                            <li>
+                                <li><a class="dropdown-item" asp-controller="Customer" asp-action="Index">View Customers</a></li>
+                                <li><a class="dropsown-item" asp-controller="Customer" asp-action="New">Add New Customer</a></li>
+                            <li>
+                            <a ><i class="fa fa-wrench fa-fw"></i> Receipt <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                 <li><a class="dropdown-item" asp-controller="Receipt" asp-action="Index">View Customer Payments</a></li>
+                                <li> <a class="dropdown-item" asp-controller="Receipt" asp-action="New">Add Customer Payments</a></li>                 </li>
+                                <li> <a class="dropdown-item" asp-controller="Receipt" asp-action="ReceiptRecord">View Records</a></li>                 </li>
+                               
+                                </ul>
+                              </li>
+                              </li>  
+                            </ul> 
+                        
+                        </li>
+                        <li>
+                            <a ><i class=" fa fa-male fa-fw"></i>Supplier <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a class="dropdown-item" asp-controller="Supplier" asp-action="Index">View Suppliers</a></li>
+                                  <li><a class="dropdown-item" asp-controller="Supplier" asp-action="New">Add New Suppliers</a></li>
+                                
+                             <li>
+                                 <li>
+                            <a><i class="fa  fa-paper-plane-o   fa-fw"></i> Payments <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li><a class="dropdown-item" asp-controller="Payment" asp-action="Index"> View Supplier Payments</a></li>
+                                <li><a class="dropdown-item" asp-controller="Payment" asp-action="New"> Add Supplier Payments</a></li>
+                                <li><a class="dropdown-item" asp-controller="Payment" asp-action="PaymentRecord">View Records</a></li>
+                                
+                             </ul>
+                                 </li>
+                             </li>
+                            </ul>
+                        </li>
+                       <li>
+                           <a><i class="fa fa-shopping-cart   fa-fw"></i> Material Stocks <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a class="dropdown-item" asp-controller="MaterialStock" asp-action="Index">View Stocks</a></li>
+                     
+
+                            </ul>
+                       </li>
+                        <li>
+                           <a><i class="fa fa-legal fa-fw"></i> Daily Material Uses <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a class="dropdown-item" asp-controller="DailymaterialUse" asp-action="Index">View Uses</a></li>
+                                <li><a class="dropsown-menu" asp-controller="DailymaterialUse" asp-action="New">Use Material</a></li>
+                            </ul>
+                       </li>
+                        <li>
+                           <a><i class="fa fa-money fa-fw"></i> Profit Loss Manager <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a class="dropdown-item" asp-controller="ProfitLoss" asp-action="Index">View Daily Record</a></li>
+                            </ul>
+                       </li>
+                        <li>
+                           <a><i class="fa fa-male fa-fw"></i> Purchase From Suppliers  <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a class="dropdown-item" asp-controller="Purchase" asp-action="Index">View Purchase Record</a></li>
+                                <li><a class="dropsown-menu" asp-controller="Purchase" asp-action="New">Pruchase</a></li>
+                            </ul>
+                       </li>
+                
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+  <div id="page-wrapper">
+
+
+
+ @await Component.InvokeAsync("ClientNotifications.Notify")
+    <partial name="_CookieConsentPartial" />
+
+   
+        @RenderBody()
+      
+        <footer>
+            <p>&copy; 2019 - newproject</p>
+        </footer>
+ 
+
+
+        <script src="~/theme/vendor/jquery/jquery.min.js"></script>
+
+         <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/theme/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/theme/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="~/theme/vendor/raphael/raphael.min.js"></script>
+    <script src="~/theme/vendor/morrisjs/morris.js"></script>
+    <script src="~/theme/data/morris-data.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/theme/dist/js/sb-admin-2.js"></script>
+        
+        
+        <script src="~/js/delete.js" asp-append-version="true"></script>
+
+        <script src="~/toastr/build/toastr.min.js"></script>
+        <script src="~/sweetalert/dist/sweetalert.min.js"></script>
+
+
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+    
+  </div>
+ </div>
+</body>
+</html>

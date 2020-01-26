@@ -1,0 +1,38 @@
+@model Receipt
+
+<div class="row">
+<div class="col-lg-4">
+  
+  <div class="panel panel-primary">
+<div class="panel-heading panel-primary ">Add On Daily Stock</div>
+<hr>
+<div class="panel-body">
+<form asp-action="Create" asp-controller="Receipt" method="POST">
+    <input type="hidden" asp-for="Id"/>
+
+        <div class="form-group">
+        <label asp-for="PaymentDate">Payment Date</label>
+        <input type="date" asp-for="PaymentDate" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CustomerId">Customer Name</label>
+        <select asp-for="CustomerId" asp-items="@ViewBag.Customer" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Amount">Received Amount</label>
+        <input type="number" asp-for="Amount" class="form-control"/>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-info"/>
+    </div>
+
+
+</form>
+</div>
+  </div>
+</div>
+</div>

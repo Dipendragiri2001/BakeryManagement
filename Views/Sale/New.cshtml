@@ -1,0 +1,36 @@
+@model Sale
+<hr>
+<div class="row">
+<div class="col-lg-4">
+  
+  <div class="panel panel-primary">
+      <div class="panel panel-heading">Sale Products From Daily Stocks to Customer</div>
+      <div class="panel-body">
+<form asp-action="New" asp-controller="Sale" method="Post">
+    <input asp-for="Id" type="hidden"/>
+
+    <div class="form-group">
+        <label asp-for="CustomerId">Select Customer</label>
+        <select asp-for="CustomerId" asp-items="@ViewBag.Customer" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DailyStockId">Select Stock Items</label>
+        <select asp-for="DailyStockId" asp-items="@ViewBag.DailyStock" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quantity"></label>
+        <input type="text" asp-for="Quantity" class="form-control"/>
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Sale" class="btn btn-success"/>
+    </div>
+
+</form>
+  </div>
+</div>
+</div>
+</div>

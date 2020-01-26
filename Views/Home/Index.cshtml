@@ -1,0 +1,99 @@
+﻿
+
+@if(TempData["x"]!=null || TempData["y"]!=null)
+{
+<div class="col-lg-12"></div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> @TempData["x"] @TempData["y"]
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div> 
+}
+            <!-- /.row -->
+<div class="row container-fluid">
+   <!-- Earnings (Daily) Card Example -->
+        @if(@ViewBag.ProfitLoss !=null){
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Daily)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Rs. @ViewBag.ProfitLoss.ToString("#.##")</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        }
+    <!-- Earnings (Monthly) Card Example -->
+  
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Rs. @ViewBag.monthlyData.ToString("#.##")</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+</div>
+ 
+     <div class="row">          
+            <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Doughnut Chart 
+                        </div>
+                        <div class="panel-body">
+                           <canvas id="myChart" width="400" height="400"></canvas>
+                            <a href="#" class="btn btn-default btn-block">View Details</a>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+                <!-- /.col-lg-6 -->
+    </div>
+  </div>
+ 
+</div>
+ @* @section Scripts{
+   <script>
+var ctx = document.getElementById("myChart").getContext('2d');
+
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'doughnut',
+
+    // The data for our dataset
+    data: {
+        labels: ["Bread" , "Pastry","Bun"],
+        datasets: [{
+            label: "Daily Stocks",
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              '#36a2eb',
+              '#cc65fe'
+            ],
+            borderColor:[
+              'white'
+            ],
+            data: [@ViewBag.Bread, @ViewBag.Pastry,@ViewBag.Bun],
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+</script> *@
+ }

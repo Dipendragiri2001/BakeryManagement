@@ -1,0 +1,21 @@
+@model Product
+
+<div class="row">
+<div class="col-lg-4">
+  
+  <div class="panel panel-primary">
+<div class="panel-heading panel-primary ">Add Products To Purchase</div>
+
+<div class="panel-body">
+<form asp-controller="Product" asp-action="Purchase" method="POST" >
+  <input type="hidden" value ="@ViewBag.Message" name="message" id="message"class="form-control" />
+<input type="hidden" asp-for="Id"/>
+<div class="form-group">
+    <label asp-for="PurchaseName">Product Name:</label>
+    <input type="text" class="form-control" asp-for="PurchaseName"/>
+  </div>
+ <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+  </div>
+</div></div>
+</div>

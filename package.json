@@ -1,0 +1,21 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "js_files": [],
+  "css_files": [
+    "./bootswatch/solar/bootstrap.css"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dipendra",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "file:bootstrap",
+    "bootswatch": "^4.2.1",
+    "sweetalert": "^2.1.2",
+    "toastr": "^2.1.4"
+  }
+}

@@ -1,0 +1,44 @@
+@model MaterialStock
+
+<div class="row">
+<div class="col-lg-4">
+  
+  <div class="panel panel-primary">
+<div class="panel-heading panel-primary ">View Material Stock Stock</div>
+<hr>
+<div class="panel-body">
+<form asp-action="New" asp-controller="MaterialStock" method="POST">
+    <div class="form-group">
+    
+    <input type="hidden" value ="@ViewBag.Message" name="message" id="message"class="form-control" />
+    <input type="hidden" asp-for="Id"/>
+  </div>
+    <div class="form-group">
+        <label asp-for="ProductName">Product Name</label>
+        <input type="text" asp-for="ProductName" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MeasurementUnit"></label>
+        <select type="number" asp-for="MeasurementUnit" class="form-control">
+            <option value="kg">kg</option>
+            <option value="ml">ml</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="RatePerKg">Rate Per Kg/ltr</label>
+        <input type="number" asp-for="RatePerKg" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Quantity"></label>
+        <input type="number" asp-for="Quantity" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-info"/>
+    </div>
+</form>
+</div>
+  </div>
+</div>
+</div>
